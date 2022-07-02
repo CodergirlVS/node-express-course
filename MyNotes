@@ -1,0 +1,8 @@
+error handling:
+
+parse time err
+course time err - try/catch
+built in err
+syntaxError - err mesage
+
+finally will always run

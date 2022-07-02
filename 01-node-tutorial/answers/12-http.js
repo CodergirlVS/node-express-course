@@ -1,8 +1,10 @@
 const http = require("http");
-
-const server = http.createServer((req, res) => {
+const fs = require('fs').promises
+let first;
+const server = http.createServer(async (req, res) => {
+  first = await fs.readFile('./content/first.txt', 'utf8')
   if (req.url === "/") {
-    res.end("Welcome to our home page");
+    res.end(`Welcome to our home page ${first}`);
   } else if (req.url === "/about") {
     res.end("Here is our short history");
   } else {
