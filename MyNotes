@@ -1,3 +1,5 @@
+when using fs with promise we dont need to provide the call back function.
+
 error handling:
 
 parse time err
@@ -6,3 +8,31 @@ built in err
 syntaxError - err mesage
 
 finally will always run
+
+Response status code:
+200: ok
+400: error with request
+401: request unauthorized
+404: resouce was not found
+
+res.writeHead (status code, headers (MIME types), optional body)
+res.write - to write the data on the webpage. If headers specify content-type as 'text/plain or text/html or application/jason'
+res.end() - ends the response we are sending.
+res.send() - sends the reponse to the client.
+
+npm i express --save
+EXPRESS:
+All static files can be moved to public folder and then we dont need to provide path as its available for the app to render. 
+
+res.use(express.static(directory path
+))
+
+There are 2 options to get or send data (http interface):
+API - json                     SSR - Template
+send Data                      send Template
+res. json                      res.render()
+
+Q why did the code work when we passes 400 in the Headers? -http-app.js
+cos that 400 in WriteHeader is just the code we are sending the browser and not the actural response status code.
+
+good api: http://hn.algolia.com/api/v1/items/:id
