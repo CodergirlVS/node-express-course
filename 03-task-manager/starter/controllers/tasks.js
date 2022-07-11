@@ -1,5 +1,5 @@
 const Task = require('../models/Task')
-
+console.log(Task, "Task")
 const getAllTasks = (req, res) => {
     res.send('get all tasks')
 }
