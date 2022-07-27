@@ -42,7 +42,7 @@ const getAllProducts = async (req, res) => {
     });
   }
 
-  let result = Product.find(queryObject);
+  let result = await Product.find(queryObject);
   // sort
   if (sort) {
     const sortList = sort.split(',').join(' ');
