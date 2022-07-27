@@ -20,7 +20,7 @@ const getAllProducts = async (req, res) => {
     queryObject.name = { $regex: name, $options: "i" };
   }
   if (numericFilters) {
-    const operatorMap = {
+    const operatorMap = { //price>40, rating>=4
       ">": "$gt",
       ">=": "$gte",
       "=": "$eq",
@@ -30,18 +30,18 @@ const getAllProducts = async (req, res) => {
     const regEx = /\b(<|>|=|>=|<=)\b/g;
     let filters = numericFilters.replace(
       regEx,
-      (match) => `-${operatorMap[match]}-`
+      (match) => `-${operatorMap[match]}-` //price-$gt-40, rating-$gte-4
     );
     const options = ["price", "ratings"];
     filters = filters.split(",").forEach((item) => {
-      const [field, operator, value] = item.split("-");
+      const [field, operator, value] = item.split("-"); // destructuring the array
       if (options.includes(field)) {
         queryObject[field] = { [operator]: Number(value) };
       }
     });
   }
 
-  console.log(queryObject);
+  console.log(queryObject); // { price: { '$gt': 40 } }
   let result = Product.find(queryObject);
 
   //sort
