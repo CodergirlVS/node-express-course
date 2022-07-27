@@ -9,12 +9,12 @@ const CustomAPIError = require('../errors/custom-error')
 const login = async (req, res) => {
   const {username, password} = req.body
 //validate the values By:
-  //mongo
+  //mongoose validation
   //Joi
   //check in the controller
 
   if(!username || !password){
-    throw new CustomAPIError("Please provide an username and password", 400)
+    throw new CustomAPIError("Please provide an email and password", 400)
   }
   res.send("Fake Login/Register/Signup Route");
 };
