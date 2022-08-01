@@ -1,4 +1,4 @@
-const CustomAPIError = requier("./custom-error");
+const CustomAPIError = require("./custom-error");
 const { StatusCodes } = require("http-status-codes");
 
 
@@ -12,4 +12,4 @@ class BadRequestError extends CustomAPIError {
 
 module.exports = BadRequestError;
 
-n//npm install http-status-codes
+//npm install http-status-codes
